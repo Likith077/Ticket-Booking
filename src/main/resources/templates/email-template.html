@@ -4,67 +4,118 @@
 <meta charset="UTF-8">
 <title>OTP Verification</title>
 
-<!-- Google Fonts -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-	rel="stylesheet">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* Reset */
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-body {
-	font-family: 'Roboto', sans-serif;
-	background: linear-gradient(135deg, #6a11cb, #2575fc);
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: #fff;
-}
+    body {
+        font-family: 'Inter', sans-serif;
+        background: #f4f6f9;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        color: #333;
+    }
 
-.otp-card {
-	background: rgba(255, 255, 255, 0.1);
-	padding: 40px 50px;
-	border-radius: 15px;
-	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-	text-align: center;
-	backdrop-filter: blur(10px);
-}
+    .container {
+        background: #ffffff;
+        padding: 40px 50px;
+        border-radius: 12px;
+        width: 100%;
+        max-width: 480px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        border: 1px solid #e6e9ef;
+    }
 
-h1 {
-	font-size: 1.8rem;
-	margin-bottom: 20px;
-	font-weight: 700;
-}
+    .header {
+        text-align: center;
+        margin-bottom: 25px;
+    }
 
-.highlight {
-	color: #ffd700;
-	font-weight: bold;
-}
+    .header h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #1a1a1a;
+    }
 
-@media ( max-width : 500px) {
-	.otp-card {
-		padding: 25px 20px;
-	}
-	h1 {
-		font-size: 1.5rem;
-	}
-}
+    .greeting {
+        font-size: 1.1rem;
+        margin-bottom: 18px;
+        color: #444;
+        text-align: center;
+    }
+
+    .otp-box {
+        margin: 25px 0;
+        background: #f1f5ff;
+        border-left: 4px solid #3366ff;
+        padding: 18px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .otp {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #1a3cff;
+        letter-spacing: 3px;
+    }
+
+    .footer-text {
+        font-size: 0.95rem;
+        text-align: center;
+        margin-top: 25px;
+        color: #666;
+    }
+
+    .highlight {
+        color: #1a3cff;
+        font-weight: 700;
+    }
+
+    @media (max-width: 500px) {
+        .container {
+            padding: 25px 20px;
+        }
+        .header h2 {
+            font-size: 1.5rem;
+        }
+        .otp {
+            font-size: 1.7rem;
+        }
+    }
 </style>
 </head>
 <body>
 
-	<div class="otp-card">
-		<h1>
-			Hello <span class="highlight" th:text="${name}"></span>, <br>
-			Your OTP is <span class="highlight" th:text="${otp}"></span>
-		</h1>
-	</div>
+<div class="container">
+    
+    <div class="header">
+        <h2>OTP Verification</h2>
+    </div>
+
+    <p class="greeting">
+        Hello <span class="highlight" th:text="${name}"></span>,
+    </p>
+
+    <div class="otp-box">
+        <div class="otp" th:text="${otp}"></div>
+    </div>
+
+    <p class="footer-text">
+        Please use this OTP to complete your verification.  
+        This code is valid for a limited time.
+    </p>
+
+</div>
 
 </body>
 </html>
