@@ -1,121 +1,93 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>OTP Verification</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+/* EMAIL-FRIENDLY RESET */
+body, table, td, div, p {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
 
-    body {
-        font-family: 'Inter', sans-serif;
-        background: #f4f6f9;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        color: #333;
-    }
+body {
+	background: #f5f6fa;
+	padding: 20px;
+}
 
-    .container {
-        background: #ffffff;
-        padding: 40px 50px;
-        border-radius: 12px;
-        width: 100%;
-        max-width: 480px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        border: 1px solid #e6e9ef;
-    }
+/* CARD */
+.email-card {
+	max-width: 480px;
+	margin: 20px auto;
+	background: #ffffff;
+	border-radius: 12px;
+	border: 1px solid #e5e5e5;
+	padding: 30px 35px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
 
-    .header {
-        text-align: center;
-        margin-bottom: 25px;
-    }
+/* TITLE */
+.title {
+	font-size: 22px;
+	font-weight: bold;
+	color: #333;
+	text-align: center;
+	margin-bottom: 15px;
+}
 
-    .header h2 {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: #1a1a1a;
-    }
+/* OTP */
+.otp-code {
+	font-size: 32px;
+	font-weight: bold;
+	color: #ff4d4d;
+	text-align: center;
+	letter-spacing: 3px;
+	padding: 12px 0;
+}
 
-    .greeting {
-        font-size: 1.1rem;
-        margin-bottom: 18px;
-        color: #444;
-        text-align: center;
-    }
+/* TEXT */
+.text {
+	font-size: 15px;
+	color: #555;
+	line-height: 1.6;
+	text-align: center;
+	margin-bottom: 15px;
+}
 
-    .otp-box {
-        margin: 25px 0;
-        background: #f1f5ff;
-        border-left: 4px solid #3366ff;
-        padding: 18px;
-        border-radius: 8px;
-        text-align: center;
-    }
-
-    .otp {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #1a3cff;
-        letter-spacing: 3px;
-    }
-
-    .footer-text {
-        font-size: 0.95rem;
-        text-align: center;
-        margin-top: 25px;
-        color: #666;
-    }
-
-    .highlight {
-        color: #1a3cff;
-        font-weight: 700;
-    }
-
-    @media (max-width: 500px) {
-        .container {
-            padding: 25px 20px;
-        }
-        .header h2 {
-            font-size: 1.5rem;
-        }
-        .otp {
-            font-size: 1.7rem;
-        }
-    }
+/* FOOTER */
+.footer {
+	margin-top: 20px;
+	font-size: 12px;
+	color: #777;
+	text-align: center;
+}
 </style>
 </head>
+
 <body>
 
-<div class="container">
-    
-    <div class="header">
-        <h2>OTP Verification</h2>
-    </div>
+	<div class="email-card">
 
-    <p class="greeting">
-        Hello <span class="highlight" th:text="${name}"></span>,
-    </p>
+		<div class="title">OTP Verification</div>
 
-    <div class="otp-box">
-        <div class="otp" th:text="${otp}"></div>
-    </div>
+		<p class="text">
+			Hello <strong th:text="${name}"></strong>, <br>Your One-Time
+			Password for verification is:
+		</p>
 
-    <p class="footer-text">
-        Please use this OTP to complete your verification.  
-        This code is valid for a limited time.
-    </p>
+		<div class="otp-code" th:text="${otp}"></div>
 
-</div>
+		<p class="text">
+			This OTP is valid for the next 2 minutes.<br> Please do not
+			share it with anyone.
+		</p>
+
+		<div class="footer">© BookMyTicket — Secure Verification System
+		</div>
+
+	</div>
 
 </body>
 </html>
